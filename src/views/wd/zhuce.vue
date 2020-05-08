@@ -19,14 +19,14 @@
    <p class="agree-content">
        <el-checkbox-group v-model="checkList" class="checklist">
     <el-checkbox label="" class="checklable">我已阅读并同意
-    <a target="_blank" @click="go()" >《程序员用户协议》</a>
+    <a>《程序员用户协议》</a>
       </el-checkbox>
   </el-checkbox-group>
   <el-form-item>
-    <el-button type="primary" @click="login" class="btn">注册</el-button>
+    <el-button type="primary" @click="submitForm('ruleForm')" class="btn">注册</el-button>
   </el-form-item>
     <p class="change-status">
-        <span class="change-style"  @click="go()" >已有帐号，立即登录</span>
+       <a href="/denglu" class="zhuce"> <span class="change-style" >已有帐号，立即登录</span></a>
     </p>
 </el-form>
         </div>
@@ -87,7 +87,6 @@
           pass: '',
           checkPass: '',
           yzm:'',
-          btn:"",
         },
          checkList: ['选中且禁用','复选框 '],
         rules: {
@@ -107,29 +106,16 @@
       };
     },
     methods: {
-      login() {
-      this.$refs.ruleForm.validate(async valid => {
-        if (!valid) return
-        const { data: res } = await this.$http.post('login', this.loginForm)
-        if (res.meta.status !== 200) return this.$message.error('登录失败！')
-        this.$message.success('登录成功')
-        console.log(res);
-        // 将登录成功之后的 token，保存到客户端的 sessionStorage 中
-        // 项目中出了登录之外的其他API接口，必须在登录之后才能访问
-        // token 只应在当前网站打开期间生效，所以将 token 保存在 sessionStorage 中
-        window.sessionStorage.setItem('token', res.data.token)
-        // 通过编程式导航跳转到后台主页，路由地址是 /home
-        this.$router.push('/home');
-      })
-    },
-       go() {
-                this.$router.push({
-                    name: 'denglu',
-                    params: {
-                        info: this.name
-                    }
-                });
-            },
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (!valid) {
+           this.$message.error('注册失败');
+          } else {
+            this.$message.success('注册成功');
+          }
+        });
+      },
+     
     }
   }
 </script>
@@ -210,5 +196,8 @@
     cursor: pointer;
     font-size: 14px;
     line-height: 19px;
+}
+.change-status a{
+  text-decoration:none;
 }
 </style>
