@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/wb':{
+        target:'http://192.168.1.108:8000/',//协议域名  ；本地：端口域名
+        // secure:false,   //如果协议是https，需要配置这个参数
+        changeOrigin:true,//是否跨域
+        pathRewrite:{
+          '^/wb':'http://192.168.1.108:8000/'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -20,7 +29,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
