@@ -6,6 +6,7 @@ import home from '@/views/wd/home'
 import Htop from '@/components/Htop'
 import Denglu from '@/views/mhy/denglu.vue'
 import Shouye from '@/views/mhy/shouye.vue'
+import Zhucu from '@/views/wsz/zhucu.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -41,6 +42,11 @@ export default new Router({
             path: "/shouye",
             name: "Shouye",
             component: Shouye
-        }
+        },
+        {
+            path: '/zhucu',
+            name: 'Zhucu',
+            component: Zhucu
+        },
     ]
 })
