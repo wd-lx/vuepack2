@@ -1,8 +1,9 @@
-import vue from 'vue'
-import vuex from 'vuex'
-vue.use(vuex)
-const store = new vuex.store({
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+const store = new Vuex.Store({
     state: {
 
-    }
+    },
 })
+export default store

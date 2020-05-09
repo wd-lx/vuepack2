@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import zhuce from '@/views/wd/zhuce'
 import home from '@/views/wd/home'
 import Htop from '@/components/Htop'
+import Denglu from '@/views/mhy/denglu.vue'
+import Shouye from '@/views/mhy/shouye.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -30,5 +32,15 @@ export default new Router({
             name: 'Htop',
             component: Htop
         },
+        {
+            path: "/denglu",
+            name: "Denglu",
+            component: Denglu
+        },
+        {
+            path: "/shouye",
+            name: "Shouye",
+            component: Shouye
+        }
     ]
 })
