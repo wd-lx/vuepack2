@@ -1,14 +1,25 @@
 <template>
     <div class="zhuce">
+      <div class="zhuce-top">
+       <div class="zhuce-img"></div>
+       <p>互联网外包平台项目</p>
+       <div class="zhuce-right">
+        <p class="zhuce-right-span">已有帐号?</p>
+        <a href="/denglu"><p class="zhuce-right-denglu">登录</p></a> 
+       </div>
+      </div>
         <div class="zhuce-box">
             <h3>注册一个新帐户</h3>
-         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="" class="demo-ruleForm">
-  <el-form-item prop="eamil" class="el-form">
-    <el-input v-model="ruleForm.eamil" autocomplete="off" placeholder="请输入邮箱"></el-input>
+         <el-form :model="ruleForm" status-icon  ref="ruleForm" label-width="" class="demo-ruleForm">
+  <el-form-item prop="email" class="el-form">
+    <el-input v-model="ruleForm.email" autocomplete="off" placeholder="请输入邮箱"></el-input>
   </el-form-item>
   <el-form-item  prop="yzm"  class="el-form">
     <el-input  v-model="ruleForm.yzm" autocomplete="off" placeholder="请输入验证码" class="el-input"></el-input>
-     <button disabled="disabled" type="button" class="vcode-btn"> 获取验证码</button>
+     <el-button  type="button" class="vcode-btn" @click="getyzm()"> 获取验证码</el-button>
+  </el-form-item>
+   <el-form-item  prop="username"  class="el-form">
+    <el-input  v-model="ruleForm.username" autocomplete="off" placeholder="请输入用户"></el-input>
   </el-form-item>
   <el-form-item  prop="pass"  class="el-form">
     <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder="请输入密码"></el-input>
@@ -26,7 +37,7 @@
     <el-button type="primary" @click="submitForm('ruleForm')" class="btn">注册</el-button>
   </el-form-item>
     <p class="change-status">
-       <a href="/denglu" class="zhuce"> <span class="change-style" >已有帐号，立即登录</span></a>
+       <a href="/xuqiufang" class="zhuce"> <span class="change-style" >注册需求方</span></a>
     </p>
 </el-form>
         </div>
@@ -36,82 +47,36 @@
 <script>
   export default {
     data() {
-      var validdataEamil=(rule,value,callback)=>{
-          if(value===''){
-              callback(new Error("请输入正确的邮箱"));
-          }else{
-             if (value !== '') {
-            var reg=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-            if(!reg.test(value)){
-              callback(new Error('请输入有效的邮箱'));
-            }
-          }
-          callback();
-          }
-      };
-       var validdataYzm=(rule,value,callback)=>{
-          if(value===''){
-              callback(new Error("请输入正确的验证码"));
-          }else{
-             if (value !=='') {
-           var regs =/^[\s\S]{6,12}/;
-           if(!regs.test(value)){
-               callback(new Error('验证码不正确'));
-           }
-          }
-          callback();
-          }
-      };
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入正确的密码'));
-        }else if(value.length < 6){
-          callback(new Error('密码长度最小6位'));
-        }else{
-          callback();
-        }
-
-      };
-      var validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm.pass) {
-          callback(new Error('两次输入密码不一致!'));
-        } else {
-          callback();
-        }
-      };
       return {
         ruleForm: {
-          eamil:'',
+          email:'',
           pass: '',
           checkPass: '',
           yzm:'',
+          username:''
         },
          checkList: ['选中且禁用','复选框 '],
-        rules: {
-         eamil:[
-         { validator: validdataEamil, trigger: 'blur',required: true }
-            ],
-        yzm:[
-         { validator: validdataYzm, trigger: 'blur',required: true }
-            ],
-          pass: [
-            { validator: validatePass, trigger: 'blur',required: true }
-          ],
-          checkPass: [
-            { validator: validatePass2, trigger: 'blur',required: true}
-          ],
-        }
       };
     },
     methods: {
+      getyzm(){
+        this.axios.post('/wb/sendEmail',{email:this.ruleForm.email}).then(res=>{
+          console.log(res);
+        })
+      },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
-          if (!valid) {
-           this.$message.error('注册失败');
+          if (valid) {
+            this.axios.post('/wb/register',{
+              email:this.ruleForm.email,
+              code:this.ruleForm.yzm,
+              username:this.ruleForm.username,
+              password:this.ruleForm.pass
+            }).then(res=>{
+              console.log(res);
+            })
           } else {
-            this.$message.success('注册成功');
+           this.$message.error('注册失败');
           }
         });
       },
@@ -121,6 +86,55 @@
 </script>
 
 <style>
+  .zhuce-top{
+    height: 50px;
+    width: 1200px;
+    margin: auto;
+  }
+  .zhuce-img{
+    height: 50px;
+    width: 100px;
+    background-color: pink;
+    float: left;
+  }
+  .zhuce-top p{
+    height: 50px;
+    line-height: 50px;
+    color: #333333;
+    width: 300px;
+    text-align: center;
+    float: left;
+    font-size: 14px;
+  }
+  .zhuce-right{
+    height: 50px;
+    width:200px;
+    float: right;
+  }
+  .zhuce-right .zhuce-right-span{
+    line-height: 50px;
+    width: 70px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+  .zhuce-right .zhuce-right-denglu{
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #4289dc;
+    color: #4289dc;
+    font-size: 12px;
+    text-align: center;
+    width: 68px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .zhuce-right .zhuce-right-denglu:hover{
+    background-color: #4289dc;
+    color: #fff;
+  }
     .zhuce-box{
     -webkit-box-shadow: 0 1px 10px 2px rgba(0,0,0,.05);
     -webkit-box-sizing: border-box;
@@ -130,10 +144,10 @@
     box-sizing: border-box;
     text-align: center;
     width: 400px;
-    height: 556px;
+    height:600px;
     position: absolute;
     left: 50%; 
-    top: 50px;
+    top: 80px;
     transform: translate(-50%);
 }
 .zhuce h3{
@@ -167,6 +181,15 @@
     right: 10px;
     position:absolute;
 }
+button:hover {
+    color: #409EFF;
+     border-color:#DCDFE6; 
+    background-color:#fff;
+}
+.vcode-btn{
+  padding: 0px 22px 0 0;
+  height: 0px;
+}
 .btn{
    height: 40px;
    width: 300px;
@@ -192,7 +215,7 @@
     color:#409EFF;
 }
 .change-style {
-    color:#409EFF;
+    color:#666;
     cursor: pointer;
     font-size: 14px;
     line-height: 19px;

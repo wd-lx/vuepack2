@@ -11,12 +11,12 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/api': {
-                target: 'http://www.wumeili.top', //协议域名 端口域名
+            '/wb': {
+                target: 'http://192.168.1.108:8000/', //协议域名 端口域名
                 //secure:false,//如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/api': 'http://www.wumeili.top'
+                    '^/wb': 'http://192.168.1.108:8000/'
                 }
             }
         },
