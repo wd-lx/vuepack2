@@ -10,6 +10,14 @@ import Htop from '@/components/Htop'
 import Denglu from '@/views/mhy/denglu.vue'
 import Shouye from '@/views/mhy/shouye.vue'
 import Zhucu from '@/views/wsz/zhucu.vue'
+import hzyq from '@/views/wsz/hzyq.vue'
+import fabuxuqiu1 from '@/views/wsz/fabuxuqiu1.vue'
+import toubu from '@/components/toubu.vue'
+import toubu1 from '@/components/toubu1.vue'
+import dibu from '@/components/dibu.vue'
+
+import xuqiuliebiao from '@/views/wsz/xuqiuliebiao.vue'
+import xiangxiliebiao from '@/views/wsz/xiangxiliebiao.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -66,6 +74,44 @@ export default new Router({
             path: '/gerenxinxi',
             name: 'gerenxinxi',
             component: gerenxinxi
+        },
+        {
+            path: '/hzyq',
+            name: 'hzyq',
+            component: hzyq
+        },
+        {
+            path: '/fabuxuqiu1',
+            name: 'fabuxuqiu1',
+            component: fabuxuqiu1
+        },
+
+        {
+            path: '/toubu',
+            name: 'toubu',
+            component: toubu
+        },
+        {
+            path: '/toubu1',
+            name: 'toubu1',
+            component: toubu1
+        },
+        {
+            path: '/dibu',
+            name: 'dibu',
+            component: dibu
+        },
+        {
+            path: '/xiangxiliebiao',
+            name: 'xiangxiliebiao',
+            component: xiangxiliebiao
+        },
+
+        {
+            //  path: '/xuqiuliebiao/:id',
+            path: '/xuqiuliebiao',
+            name: 'xuqiuliebiao',
+            component: xuqiuliebiao
         },
     ]
 })
