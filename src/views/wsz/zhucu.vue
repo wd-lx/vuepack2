@@ -43,7 +43,11 @@
              <!-- <a id="src" > 下一步</a> -->
 
 
+<<<<<<< HEAD
                <a id="tvb" href="/denglu">已有云沃客帐号，立即登录</a>
+=======
+               <a id="tvb" href="denglu">已有云沃客帐号，立即登录</a>
+>>>>>>> 807b857ba1f7af442a21012c944c8c08961983f1
 
                <p class="sign-footer footer-margin92">Copyright© 2020,北京云族佳科技有限公司版权所有</p>
           </div>
@@ -126,7 +130,11 @@
     background-color: white;
     width: 100px;
     height: 40px;
+<<<<<<< HEAD
     float:right; 
+=======
+    
+>>>>>>> 807b857ba1f7af442a21012c944c8c08961983f1
     display: inline-block;
     z-index: 45555555555;
     margin-left: -100px;
@@ -160,6 +168,18 @@
     font-size: 14px;
     line-height: 19px;
     margin-top: 20px;
+}
+#mlo {
+    background-color: white;
+    width: 100px;
+    height: 40px;
+    display: inline-block;
+    z-index: 45555555555;
+    margin-left: -100px;
+    position: absolute;
+    left: 335px;
+    top: 0;
+    font-size: 12px;
 }
 /* #src{
     width: 335px;

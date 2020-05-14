@@ -139,6 +139,19 @@
     margin-left: 10px;
     margin-top: 10px;
   }
+  .vcode-btn {
+    background: none;
+    border: 0;
+    color: #409EFF;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1.79px;
+    line-height: 40px;
+    padding: 0 17px 0 0;
+    right: 10px;
+    position: absolute;
+    top: 0px;
+}
   .zhuce-right .zhuce-right-denglu:hover{
     background-color: #4289dc;
     color: #fff;

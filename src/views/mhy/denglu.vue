@@ -9,9 +9,6 @@
        <p id="h3">登录开启云工作</p>
        <div id="work">
          <div id="work-div">
-          
-         
-
           <div id="data">
             <dl>
                 <p class="zhangdeng">账号登录</p>
@@ -23,7 +20,7 @@
     <el-input placeholder="请输入密码" v-model="ruleForm.passwrd" show-password></el-input>
    </el-form-item>
    <el-form-item class="wangjimi">
-     <a href="/zhucu" class="wangmi" ><p class="wangji">忘记密码</p></a>
+     <a href="zhucu" class="wangmi" ><p class="wangji">忘记密码</p></a>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')" class="lidengl">立即登录</el-button>
@@ -105,8 +102,8 @@
                 if(res.data.code===400){
                   this.$message.error('用户名不存在！')
           }else if(res.data.code===200) {
-                sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
-                this.$router.push('/fabuxuqiu1')
+                // sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
+                this.$router.push('/shouye')
           }
             })
              

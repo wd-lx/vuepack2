@@ -80,7 +80,10 @@
     "axios": "^0.19.2",
     "element-ui": "^2.13.1",
     "vue": "^2.5.2",
+<<<<<<< HEAD
 
+=======
+>>>>>>> 807b857ba1f7af442a21012c944c8c08961983f1
     "vue-router": "^3.0.1",
     "vuex": "^3.3.0"
   },
@@ -118,7 +121,7 @@
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-dev-server": "^2.11.5",
     "webpack-merge": "^4.1.0"
   },
   "engines": {

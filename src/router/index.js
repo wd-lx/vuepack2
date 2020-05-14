@@ -18,6 +18,9 @@ import dibu from '@/components/dibu.vue'
 
 import xuqiuliebiao from '@/views/wsz/xuqiuliebiao.vue'
 import xiangxiliebiao from '@/views/wsz/xiangxiliebiao.vue'
+import Yuanlin from '@/views/mhy/yuanlin.vue'
+import Excellent from '@/views/mhy/excellent.vue'
+import Renzheng from '@/views/mhy/renzheng.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -112,6 +115,20 @@ export default new Router({
             path: '/xuqiuliebiao',
             name: 'xuqiuliebiao',
             component: xuqiuliebiao
+        }, {
+            path: '/yuanlin',
+            name: 'Yuanlin',
+            component: Yuanlin
+        },
+        {
+            path: '/excellent',
+            name: 'Excellent',
+            component: Excellent
+        },
+        {
+            path: '/renzheng',
+            name: 'Renzheng',
+            component: Renzheng
         },
     ]
 })
