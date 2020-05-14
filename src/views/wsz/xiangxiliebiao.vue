@@ -62,7 +62,28 @@
 
 <script>
   export default {
-   
+   data(){
+       return{
+            datalist:[],
+
+       }
+   },
+    mounted () {
+
+      this.Data();
+    },
+//       methods:{
+//       Data() {
+//       let self = this;
+//       this.$axios.post("wsz/basicinformation/getProjectInformation").then(res=>{
+//        self.datalist=res.data.data.msg;
+//         console.log(self.datalist);
+      
+//       // console.log(res);
+//       })
+//     }
+//   },
+
 
   }
 </script>

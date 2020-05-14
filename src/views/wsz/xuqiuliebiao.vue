@@ -53,28 +53,30 @@
     </div>
 
       
-  <div id="power">
+  <div id="power" v-for="(item,index) in datalist" :key="index" @click="getData()">
     <div id="power-ft">
 
-<!-- 接口数据 -->
+
 <a href="/xiangxiliebiao" >
-  <div id="shuju" >
+<!-- 接口数据 -->
+  <div id="shuju">
      <div id="shuju-i">
      <img src="./5.jpg" id="img">
       <div id="xiangqing">
             <p id="mingcheng">
-              <span id="axz">项目名称:</span>
-              <span id=""> 项目简介:</span>
+              <span id="axz" >项目名称:{{item.projectName}}</span>
+              <!-- <span id="" > 项目简介:{{item.projectId}}</span> -->
             </p>
             <p id="mingcheng-1">
-              <span id="axz-1">项目类型:</span>
+              <span id="axz-1" >项目类型:{{item.technique}}</span>
             </p>  
              <p id="mingcheng-2">
-              <span id="axz-2">项目预算:</span> 
+              <span id="axz-2" >项目预算:{{item.projectBdjet}}</span> 
             </p>
       </div>
      </div>
   </div>
+
 </a>
 
 
@@ -99,33 +101,33 @@
 <script>
   export default {
     data () {
-      return {
-         "technique": "",
-        "projectId": 1,
-        "projectName": "",
-        "projectBdjet": "",
-     };
-      },
-    methods:{
-          go(){
-            this.$router.push({
-              name:'',
-              params:{
-                info:this.technique,
-                info:this.projectId,
-                info:this.projectName,
-                info:this.projectBdjet,
-              }
-            });
-          },
-         created(){
-            console.log(this.$router);
-            this.bb = this.$router.params.info;
-            console.log(this.bb)
-         },
-            
+   
+       return{
+         datalist:[],
+         projectName:"",
+         projectId:"",
+         technique:"",
+         projectBdjet:"",
+       }
+     
+   },
+    mounted () {
 
+      this.getData();
     },
+
+  methods:{
+    getData() {
+      let self = this;
+      this.$axios.post("wsz/basicinformation/getProjectInformation").then(res=>{
+       self.datalist=res.data.data.msg;
+        console.log(self.datalist);
+      
+      // console.log(res);
+      })
+    }
+  },
+
       
    
    
