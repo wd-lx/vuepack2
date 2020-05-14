@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import zhuce from '@/views/wd/zhuce'
 import yunduangongzuo from '@/views/wd/yunduangongzuo'
 import fabuxuqiu2 from '@/views/wd/fabuxuqiu2'
+import jianjie from '@/views/wd/jianjie'
 import xiangqing from '@/views/wd/xiangqing'
 import gerenxinxi from '@/views/wd/gerenxinxi'
 import Htop from '@/components/Htop'
@@ -36,6 +37,11 @@ export default new Router({
             path: '/zhuce',
             name: 'zhuce',
             component: zhuce
+        },
+        {
+            path: '/jianjie',
+            name: 'jianjie',
+            component: jianjie
         },
 
         {
