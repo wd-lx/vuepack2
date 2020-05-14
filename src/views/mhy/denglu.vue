@@ -30,7 +30,7 @@
     <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
   </el-form-item>          
                 <!-- <a href="#" id="srrt"> 登录</a> -->
-                <a href="zhuce.vue" class="lice"><p class="lizhu">还没有云账号?立即注册</p></a>        
+                <a href="zhuce" class="lice"><p class="lizhu">还没有云账号?立即注册</p></a>        
          </el-form>  
             </dl>          
           </div>
@@ -106,7 +106,7 @@
                   this.$message.error('用户名不存在！')
           }else if(res.data.code===200) {
                 sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
-                this.$router.push('/shouye')
+                this.$router.push('/fabuxuqiu1')
           }
             })
              

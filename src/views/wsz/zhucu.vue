@@ -44,7 +44,7 @@
              <!-- <a id="src" > 下一步</a> -->
 
 
-               <a id="tvb" href="denglu.vue">已有云沃客帐号，立即登录</a>
+               <a id="tvb" href="/denglu">已有云沃客帐号，立即登录</a>
 
                <p class="sign-footer footer-margin92">Copyright© 2020,北京云族佳科技有限公司版权所有</p>
           </div>
