@@ -12,11 +12,11 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/wb': {
-                target: 'http://192.168.1.108:8000/', //协议域名  ；本地：端口域名
+                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/wb': 'http://192.168.1.108:8000/'
+                    '^/wb': 'http://192.168.1.134:8888/'
                 }
             }
         },

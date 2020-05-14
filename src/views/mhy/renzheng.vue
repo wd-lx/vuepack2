@@ -7,26 +7,25 @@
         
         <el-form ref="form" :model="form" label-width="80px">
            <div class="namexm"> <el-form-item label="名字">
-             <el-input v-model="form.namel"></el-input>
+             <el-input v-model="form.name"></el-input>
            </el-form-item></div>
             <div class="namexm"> <el-form-item label="身份证号">
-             <el-input v-model="form.name"></el-input>
+             <el-input v-model="form.namecard"></el-input>
            </el-form-item></div>
            
         <div class="zhengm">请上传身份证正面：</div>
-       <div class="namexmtw"> <el-upload
+       <div class="namexmtw"> 
+           <el-upload
         class="upload-demo"
-        action="https://jsonplaceholder.typicode.com/posts/"
-        :on-preview="handlePreview"
-           :on-remove="handleRemove"
-        :file-list="fileList"
+        action :http-request="fileupload"
         list-type="picture">
         <el-button size="small" type="primary">点击上传</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-        </el-upload></div>
+        <div slot="tip" class="el-upload__tip" >只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
+        </div>
 
-        <div class="zhengml">请上传身份证反面：</div>
-       <div class="namexmtw"> <el-upload
+        <!-- <div class="zhengml">请上传身份证反面：</div> -->
+       <!-- <div class="namexmtw"> <el-upload
         class="upload-demo"
         action="https://jsonplaceholder.typicode.com/posts/"
         :on-preview="handlePreview"
@@ -35,10 +34,10 @@
         list-type="picture">
         <el-button size="small" type="primary">点击上传</el-button>
         <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-        </el-upload></div>
+        </el-upload></div> -->
 
          <el-form-item size="large">
-         <el-button class="yanzng" type="primary" @click="onSubmit">立即创建</el-button>
+         <el-button class="yanzng" type="primary" @click="onSubmit">立即验证</el-button>
         </el-form-item>
         </el-form>
 
@@ -52,10 +51,10 @@
     export default {
        data() {
       return {
-          fileList: [],
+          fileList: {},
         form: {
           name: '',
-          namel:'',
+          namecard:'',
           
         }
       }
@@ -66,7 +65,31 @@
       },
       handlePreview(file) {
         console.log(file);
+      },
+      fileupload(params){
+          this.fileList=params.file;
+      },
+      onSubmit(){
+          let fromDatalist=new FormData();
+          fromDatalist.append("file",this.fileList)
+          fromDatalist.append("username",this.form.name)
+          fromDatalist.append("idnumber",this.form.namecard)
+          this.$axios.post("/wb/edu/identification/identify",fromDatalist).then(res=>{
+              console.log(res);
+              if(res.data.code===200){
+                   this.$message({
+                     message: '恭喜你，验证成功',
+                   type: 'success',
+                   
+                    });
+                   this.$router.push('/gerenxinxi')
+              }else if(res.data.code===400){
+                  this.$message.error('认证错误，请检查信息');
+              }
+
+          })
       }
+
     }
     }
 </script>

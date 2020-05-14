@@ -298,7 +298,7 @@ a{
 }
 .btny{
     
-    display: inline-block;
+    /* display: inline-block; */
     padding-right: 10px;
     max-width: 380px;
     /* text-overflow: ellipsis; */
