@@ -11,11 +11,24 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
+<<<<<<< HEAD
             '/wb': {
+=======
+            '/mhy': {
                 target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
+                    '^/mhy': 'http://192.168.1.134:8888/'
+                }
+            },
+            '/wd': {
+>>>>>>> 2d8af3becb86f5b069f05fcba8bfb789cf9c891c
+                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
+                // secure:false,   //如果协议是https，需要配置这个参数
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+<<<<<<< HEAD
                     '^/wb': 'http://192.168.1.134:8888/'
                 }
             },
@@ -27,6 +40,25 @@ module.exports = {
                     '^/wb': 'http://192.168.1.115:8000/'
                 }
             },
+=======
+                    '^/wd': 'http://192.168.1.134:8888/'
+                }
+            },
+            '/wsz': {
+                target: 'http://106.13.164.214:8000/', //协议域名  ；本地：端口域名
+                // secure:false,   //如果协议是https，需要配置这个参数
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+                '^/wsz': 'http://106.13.164.214:8000/',
+                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
+                // secure:false,   //如果协议是https，需要配置这个参数
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+                    '^/wb': 'http://192.168.1.134:8888/'
+                }
+            }
+            }
+>>>>>>> 2d8af3becb86f5b069f05fcba8bfb789cf9c891c
         },
 
         // Various Dev Server settings
@@ -83,4 +115,4 @@ module.exports = {
         // Set to `true` or `false` to always turn it on or off
         bundleAnalyzerReport: process.env.npm_config_report
     }
-}
+ }

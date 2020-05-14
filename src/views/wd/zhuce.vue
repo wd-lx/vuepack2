@@ -61,18 +61,18 @@
     },
     methods: {
       getyzm(){
-        this.axios.post('/wb/sendEmail',{email:this.ruleForm.email}).then(res=>{
+        this.axios.post('/wd/users/emailIsExist',{email:this.ruleForm.email}).then(res=>{
           console.log(res);
         })
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.axios.post('/wb/register',{
+            this.axios.post('/wd/users/addusers',{
               email:this.ruleForm.email,
               code:this.ruleForm.yzm,
-              username:this.ruleForm.username,
-              password:this.ruleForm.pass
+              userName:this.ruleForm.username,
+              userPassword:this.ruleForm.pass
             }).then(res=>{
               console.log(res);
               if(res.data.code!==this.ruleForm.yzm){

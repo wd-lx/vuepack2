@@ -94,7 +94,7 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$axios.post('/wb/login',{
+            this.$axios.post('/mhy/users/userlogin',{
                  email:this.ruleForm.name,
                  password:this.ruleForm.passwrd,
             }).then(res=>{

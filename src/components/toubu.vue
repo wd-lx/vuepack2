@@ -3,7 +3,7 @@
     <div class="top-content">
       <div class="content-img">
       <div class="block" v-for="fit in fits" :key="fit">
-    <el-image style="width: 90px; height: 60px; float: left; cursor: pointer; " :src="url" :fit="fit"></el-image>
+    <a href="/shouye"><el-image style="width: 90px; height: 60px; float: left; cursor: pointer; " :src="url" :fit="fit"></el-image></a>
   </div>
       </div>
     <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal"  @select="handleSelect" background-color="white" text-color="black"
