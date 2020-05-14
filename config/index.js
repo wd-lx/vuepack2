@@ -11,13 +11,20 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/wb': {
-<<<<<<< HEAD
-                target: 'http://192.168.1.115:8000/', //协议域名  ；本地：端口域名
+            '/mhy': {
+                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/wb': 'http://192.168.1.115:8000/'
+                    '^/mhy': 'http://192.168.1.134:8888/'
+                }
+            },
+            '/wd': {
+                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
+                // secure:false,   //如果协议是https，需要配置这个参数
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+                    '^/wd': 'http://192.168.1.134:8888/'
                 }
             },
             '/wsz': {
@@ -25,15 +32,14 @@ module.exports = {
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/wsz': 'http://106.13.164.214:8000/'
-=======
+                '^/wsz': 'http://106.13.164.214:8000/',
                 target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
                     '^/wb': 'http://192.168.1.134:8888/'
->>>>>>> 807b857ba1f7af442a21012c944c8c08961983f1
                 }
+            }
             }
         },
 
@@ -91,4 +97,4 @@ module.exports = {
         // Set to `true` or `false` to always turn it on or off
         bundleAnalyzerReport: process.env.npm_config_report
     }
-}
+ }
