@@ -57,7 +57,7 @@
     <div id="power-ft">
 
 <!-- 接口数据 -->
-<a href="/xiangxiliebiao">
+<a href="/xiangxiliebiao" >
   <div id="shuju" >
      <div id="shuju-i">
      <img src="./5.jpg" id="img">
@@ -86,23 +86,13 @@
   layout="prev, pager, next"
   :total="1000">
 </el-pagination>
-
-
     </div>
-
-
 
     </div>
   </div>
 
-
-
-
-
   </div>
-
 </div>
-
     </div>
 </template>
 
@@ -110,10 +100,34 @@
   export default {
     data () {
       return {
-     
-    
-      };
+         "technique": "",
+        "projectId": 1,
+        "projectName": "",
+        "projectBdjet": "",
+     };
+      },
+    methods:{
+          go(){
+            this.$router.push({
+              name:'',
+              params:{
+                info:this.technique,
+                info:this.projectId,
+                info:this.projectName,
+                info:this.projectBdjet,
+              }
+            });
+          },
+         created(){
+            console.log(this.$router);
+            this.bb = this.$router.params.info;
+            console.log(this.bb)
+         },
+            
+
     },
+      
+   
    
   } 
 </script>
@@ -155,8 +169,8 @@
   margin: 20px auto;
 }  
 #mk{
-    display: inline-block;
-    float: left;
+    /* display: inline-block; */
+    float: left; 
     font-size: .9rem;
     line-height: 1.35rem;
     padding: .32rem 1.2rem;
@@ -168,12 +182,14 @@
     line-height: 30px;
     font-size: 13px;
 }
+
 #mk-right{
     width: 636px;
-        height: 40px;
+    height: 40px;
     /* background-color: khaki; */
      margin-left: 114px;
 }
+
 /* 全部  */
 .quanbu{
   height: 20px;
@@ -208,7 +224,7 @@
   margin: 20px auto;
 }  
 #mk-b{
-    display: inline-block;
+    /* display: inline-block; */
     float: left;
     font-size: .9rem;
     line-height: 1.35rem;
@@ -300,7 +316,7 @@
   height: 90px;
   float: left;
   /* background-color: yellow; */
-   display: inline-block;
+   /* display: inline-block; */
    margin-top: 5px;
    margin-left: 175px;
 }
