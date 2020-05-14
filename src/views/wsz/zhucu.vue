@@ -34,7 +34,6 @@
   
   <el-form-item>
     <el-button type="primary" @click="submitForm('forRuleForm')" class="xyb">下一步</el-button>
-    <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
   </el-form-item>
 </el-form>
 
@@ -44,7 +43,7 @@
              <!-- <a id="src" > 下一步</a> -->
 
 
-               <a id="tvb" href="denglu.vue">已有云沃客帐号，立即登录</a>
+               <a id="tvb" href="/denglu">已有云沃客帐号，立即登录</a>
 
                <p class="sign-footer footer-margin92">Copyright© 2020,北京云族佳科技有限公司版权所有</p>
           </div>
@@ -67,54 +66,6 @@
 <script>
   export default {
     data() {
-      var checkAge = (rule, value, callback) => {
-        if (!value) {
-          
-            // if(!value.test(value)){
-            // var value = ("[\d]{6}|[\d]{4}");
-           return callback(new Error('验证码不能为空'));
-        //   }
-        }
-          // callback();
-
-        setTimeout(() => {
-          if (!Number.isInteger(value)) {
-            callback(new Error('请输入正确的验证码'));
-          } else {
-             
-            if(!value.test(value)){
-                var value = ("[\d]{6}|[\d]{4}");
-               callback(new Error('验证码必须为四位数字'));
-            }else {
-               callback();
-             }
-          }
-        }, 1000);
-      };
-      
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入新密码'));
-        } else {
-          if (this.forRuleForm.qrpass !== '') {
-            this.$refs.forRuleForm.validateField('qrpass');
-          }
-          callback();
-        }
-      };
-      var validatePass2 = (rule, value, callback) => {
-          var regUserName = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
-
-        if (value === '') {
-          callback(new Error('请输入邮箱'));
-        } else if (!regUserName.test(value)) {
-          callback(new Error('邮箱格式错误请重新输入'));
-        } else {
-          callback();
-        }
-      };
-
-      
       return {
         forRuleForm: {
             femail:'',
@@ -122,17 +73,6 @@
           qrpass:'',
           fyzm: ''
         },
-        rules: {
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
-          ],
-          checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
-          ],
-          age: [
-            { validator: checkAge, trigger: 'blur' }
-          ]
-        }
       };
     },
 
@@ -186,7 +126,7 @@
     background-color: white;
     width: 100px;
     height: 40px;
-    float: right;
+    float:right; 
     display: inline-block;
     z-index: 45555555555;
     margin-left: -100px;

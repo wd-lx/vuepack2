@@ -23,14 +23,14 @@
     <el-input placeholder="请输入密码" v-model="ruleForm.passwrd" show-password></el-input>
    </el-form-item>
    <el-form-item class="wangjimi">
-     <a href="zhucu.vue" class="wangmi" ><p class="wangji">忘记密码</p></a>
+     <a href="/zhucu" class="wangmi" ><p class="wangji">忘记密码</p></a>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')" class="lidengl">立即登录</el-button>
     <!-- <el-button @click="resetForm('ruleForm')">重置</el-button> -->
   </el-form-item>          
                 <!-- <a href="#" id="srrt"> 登录</a> -->
-                <a href="zhuce.vue" class="lice"><p class="lizhu">还没有云账号?立即注册</p></a>        
+                <a href="/zhuce" class="lice"><p class="lizhu">还没有云账号?立即注册</p></a>        
          </el-form>  
             </dl>          
           </div>

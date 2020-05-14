@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import zhuce from '@/views/wd/zhuce'
-import home from '@/views/wd/home'
+import yunduangongzuo from '@/views/wd/yunduangongzuo'
+import fabuxuqiu2 from '@/views/wd/fabuxuqiu2'
+import xiangqing from '@/views/wd/xiangqing'
+import gerenxinxi from '@/views/wd/gerenxinxi'
 import Htop from '@/components/Htop'
 import Denglu from '@/views/mhy/denglu.vue'
 import Shouye from '@/views/mhy/shouye.vue'
@@ -14,6 +17,7 @@ export default new Router({
 
     routes: [{
             path: '/',
+            redirect: '/denglu',
             name: 'HelloWorld',
             component: HelloWorld
         },
@@ -24,9 +28,9 @@ export default new Router({
         },
 
         {
-            path: '/home',
-            name: 'home',
-            component: home
+            path: '/yunduangongzuo',
+            name: 'yunduangongzuo',
+            component: yunduangongzuo
         },
         {
             path: '/Htop',
@@ -47,6 +51,21 @@ export default new Router({
             path: '/zhucu',
             name: 'Zhucu',
             component: Zhucu
+        },
+        {
+            path: '/fabuxuqiu2',
+            name: 'fabuxuqiu2',
+            component: fabuxuqiu2
+        },
+        {
+            path: '/xiangqing',
+            name: 'xiangqing',
+            component: xiangqing
+        },
+        {
+            path: '/gerenxinxi',
+            name: 'gerenxinxi',
+            component: gerenxinxi
         },
     ]
 })

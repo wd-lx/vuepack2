@@ -37,7 +37,7 @@
     <el-button type="primary" @click="submitForm('ruleForm')" class="btn">注册</el-button>
   </el-form-item>
     <p class="change-status">
-       <a href="/xuqiufang" class="zhuce"> <span class="change-style" >注册需求方</span></a>
+       <a href="/denglu" class="zhuce"> <span class="change-style" >已有云账号?立即登录</span></a>
     </p>
 </el-form>
         </div>
@@ -45,6 +45,7 @@
     
     </template>
 <script>
+
   export default {
     data() {
       return {
@@ -74,13 +75,20 @@
               password:this.ruleForm.pass
             }).then(res=>{
               console.log(res);
-            })
-          } else {
-           this.$message.error('注册失败');
-          }
+              if(res.data.code!==this.ruleForm.yzm){
+                    this.$message.error('验证码不正确')  
+                  }else if(res.data.email!==this.ruleForm.emai){
+                    this.$message.error('邮箱不正确')  
+                  }else  if(res.data.code!==this.ruleForm.pass){
+                  this.$message.error('密码错误')
+                  }else{
+                   sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
+                   this.$router.push('/denglu')
+                    }
+             })
+          } 
         });
       },
-     
     }
   }
 </script>
@@ -172,23 +180,18 @@
 .vcode-btn {
     background: none;
     border: 0;
-    color:#409EFF;
+     color:#409EFF;
     cursor: pointer;
     font-size: 14px;
     letter-spacing: 1.79px;
     line-height: 40px;
     padding: 0 22px 0 0;
-    right: 10px;
+    right: -10px;
     position:absolute;
+    height: 0px;
 }
-button:hover {
-    color: #409EFF;
-     border-color:#DCDFE6; 
-    background-color:#fff;
-}
-.vcode-btn{
-  padding: 0px 22px 0 0;
-  height: 0px;
+.vcode-btn:hover{
+  color: #1989fa;;
 }
 .btn{
    height: 40px;
@@ -215,12 +218,18 @@ button:hover {
     color:#409EFF;
 }
 .change-style {
-    color:#666;
+    color:#409EFF;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 19px;
 }
 .change-status a{
   text-decoration:none;
+}
+.change-status{
+ margin-left: 30px;
+ height: 19px;
+ width: 300px;
+ text-align: center;
 }
 </style>
