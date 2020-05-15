@@ -171,11 +171,16 @@
 
 
      </div>
+     <bottom></bottom>
     </div>
 </template>
 
 <script>
+import bottom from "../../components/dibu";
     export default {
+        components: {
+    bottom
+  },
          data() {
       return {
           dilist:require("../mhy/img/01.jpg"),

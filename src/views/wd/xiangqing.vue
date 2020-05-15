@@ -122,12 +122,16 @@
      </div>
  </el-main>
     </div>
-    
+    <bottom></bottom>
     </div>
 </template>
 
 <script>
+import bottom from "../../components/dibu";
     export default {
+          components: {
+                 bottom
+  },
         data() {
             return {
             }
@@ -142,19 +146,21 @@
 
 <style>
 .content{
-    margin: 50px auto;
+    margin: auto;
     width: 1000px;
     padding: 0 30px 0 10px;
+    height: 1200px;
 }
 .content-left{
     /* height: 260px; */
     /* background-color: pink; */
-    position: fixed;
+    /* position: fixed; */
     z-index: 1;
     width: 260px!important;
     max-width: 260px;
     padding: 0;
     border: 1px solid #eee;
+    float: left;
 }
 .content-left-img{
     position: relative;
@@ -224,12 +230,11 @@
     margin-bottom: 20px;
 }
 .main{
-    border-left: 10px solid #f7f7f7;
     padding: 0;
     min-height: 578px;
-    margin-left: 260px;
-    width: 75% !important;
-    position: relative;
+    margin-left: 20px;
+    position: absolute;
+    width: 800px;
     display: inline-block;
     text-align: left;
     font-size: 1rem;
@@ -334,7 +339,7 @@
     color:  #9b9b9e;;
 }
 .zuopin{
-    border: 1px solid #eee;
+    /* border: 1px solid #eee; */
     margin-bottom: 10px;
     background-color: #fff;
     text-align: left;
@@ -378,7 +383,7 @@
 .work-list li .media {
     display: block;
     overflow: hidden;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     padding-bottom: 20px;
     color: #555;
 }

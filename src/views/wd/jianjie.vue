@@ -83,11 +83,16 @@
     <div class="btn">
      <el-button type="primary" @click="qianyue">签约接单</el-button>
      </div>
+     <bottom></bottom>
     </div>
 </template>
 
 <script>
+import bottom from "../../components/dibu";
     export default {
+        components: {
+                 bottom
+  },
          data() {
             return {
               fileList: {},

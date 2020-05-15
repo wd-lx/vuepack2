@@ -54,13 +54,16 @@
         <el-button type="primary">发布需求</el-button>
         </div>
         </el-form>
-        
     </div>
+    <bottom></bottom>
     </div>
 </template>
-
 <script>
+import bottom from "../../components/dibu";
     export default {
+          components: {
+                 bottom
+  },
          data() {
       return {
         form: {

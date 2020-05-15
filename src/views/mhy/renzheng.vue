@@ -65,11 +65,16 @@
 
         </div>
     </div>
+    <bottom></bottom>
     </div>
 </template>
 
 <script>
+import bottom from "../../components/dibu";
     export default {
+        components: {
+    bottom
+  },
        data() {
       return {
           fileList: {},
