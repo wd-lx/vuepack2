@@ -27,7 +27,7 @@
   <el-form-item label="日薪" prop="desc">
     <el-input-number v-model="num" @change="handleChange" :min="300" :max="1000" label="描述文字" action :http-request="fileupload"></el-input-number>
   </el-form-item>
-   <el-form-item label="工作时间" prop="timer" action :http-request="fileupload">
+   <el-form-item label="工作时间" prop="timer" action :http-.request="fileupload">
      <el-checkbox-group v-model="checkList">
     <el-checkbox label="工作日">
       工作：
