@@ -103,7 +103,7 @@
                   this.$message.error('用户名不存在！')
           }else if(res.data.code===200) {
                 // sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
-                this.$router.push('/shouye')
+                this.$router.push('/yuanlin')
           }
             })
              

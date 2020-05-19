@@ -95,7 +95,7 @@
           fromDatalist.append("file",this.fileList)
           fromDatalist.append("username",this.form.name)
           fromDatalist.append("idnumber",this.form.namecard)
-          this.$axios.post("/mhy/edu/identification/identify",fromDatalist).then(res=>{
+          this.$axios.post("/mhy/pro/identification/identify",fromDatalist).then(res=>{
               console.log(res);
               if(res.data.code===200){
                    this.$message({

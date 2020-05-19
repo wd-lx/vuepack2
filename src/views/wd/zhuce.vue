@@ -67,8 +67,8 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.axios.post('/wd /user/addusers',{
-              email:this.ruleForm.email,
+            this.axios.post('/wd/users/addusers',{
+              userEmail:this.ruleForm.email,
               code:this.ruleForm.yzm,
               userName:this.ruleForm.username,
               userPassword:this.ruleForm.pass

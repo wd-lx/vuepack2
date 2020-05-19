@@ -19,50 +19,21 @@
          <div class="scv-zhj">
              <ul>
                  <a href="#"><li class="beidian">全部</li></a>
-                 <a href="#"><li>产品经理</li></a>
-                 <a href="#"><li>设计师</li></a>
-                 <a href="#"><li>前端</li></a>
-                 <a href="#"><li>移动端</li></a>
-                 <a href="#"><li>小程序</li></a>
-                 <a href="#"><li>游戏</li></a>
-                 <a href="#"><li>后端</li></a>
-                 <a href="#"><li>测试</li></a>
-                 <a href="#"><li>DBA</li></a>
-                 <a href="#"><li>运维</li></a>
-                 <a href="#"><li>其他</li></a>
+                 <li v-for="(item,index) in rolelist" :key="index" @click="getrole(item.name)">{{item.name}}</li>
+                 
                  
              </ul>
          </div>
          <div class="scv-zhj">
              <ul>
-                 <a href="#"><li class="beidian">全部</li></a>
-                 <a href="#"><li>北京</li></a>
-                 <a href="#"><li>上海</li></a>
-                 <a href="#"><li>深圳</li></a>
-                 <a href="#"><li>杭州</li></a>
-                 <a href="#"><li>广州</li></a>
-                 <a href="#"><li>成都</li></a>
-                 <a href="#"><li>武汉</li></a>
-                 <a href="#"><li>南京</li></a>
-                 <a href="#"><li>西安</li></a>
-                 <a href="#"><li>重庆</li></a>
-                 <a href="#"><li>长沙</li></a>
-                 <a href="#"><li>厦门</li></a>
-                 
+                 <a href="#"><li class="beidian" >全部</li></a>
+                 <li v-for="(item,index) in decalist" :key="index" @click="getroledd(item.name)">{{item.name}}</li>
              </ul>
          </div>
          <div class="scv-zhj">
              <ul>
                  <a href="#"><li class="beidian">全部</li></a>
-                 <a href="#"><li>电子商务</li></a>
-                 <a href="#"><li>设社交</li></a>
-                 <a href="#"><li>人工智能</li></a>
-                 <a href="#"><li>媒体门户</li></a>
-                 <a href="#"><li>工具软件</li></a>
-                 <a href="#"><li>消费生活</li></a>
-                 <a href="#"><li>金融</li></a>
-                 <a href="#"><li>医疗健康</li></a>
-                 <a href="#"><li>企业服务</li></a>
+                 <li v-for="(item,index) in rcaelist" :key="index" @click="getrolehy(item.name)">{{item.name}}</li>
                  
                  
              </ul>
@@ -121,7 +92,7 @@
         </div>
         </div>
    
-         <div class="erirng">
+         <div class="erirng" v-for="(item,index) in nerocalist" :key="index" @click="getroue(item.name)">
              <div class="iimg">
                  <img :src="dilist" alt="">
                  <p class="silou">已签约</p>
@@ -183,6 +154,9 @@ import bottom from "../../components/dibu";
   },
          data() {
       return {
+          nerocalist:[],
+          decalist:[],
+          location:'',
           dilist:require("../mhy/img/01.jpg"),
         ruleForm: {
           region: '',
@@ -190,9 +164,95 @@ import bottom from "../../components/dibu";
           regionl: '',
           
         },
+          
+        rolelist:[
+            {name:'后端工程师'},
+            {name:'前端工程师'},
+            {name:'移动端工程师'},
+            {name:'DBA工程师'},
+            {name:'项目经理'},
+            {name:'产品经理'},
+            {name:'运维'},
+            {name:'测试'},
+            {name:'其他'},
+        ],
+         decalist:[
+            {name:'北京'},
+            {name:'上海'},
+            {name:'深圳'},
+            {name:'杭州'},
+            {name:'广州'},
+            {name:'成都'},
+            {name:'西安'},
+            {name:'武汉'},
+            {name:'南京'},
+        ],
+         rcaelist:[
+            {name:'Java'},
+            {name:'php'},
+            {name:'c++'},
+            {name:'python'},
+            {name:'android'},
+            {name:'ios'},
+            {name:'前端'},
+            {name:'UI设计'},
+            {name:'其他'},
+        ],
+        role:''
     }
+    },
+        mounted(){
+            this.geData();
+        },
+        methods:{
+            getrole(aa){
+                console.log(aa);
+                this.role=aa;
+                this.geData();
+                this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
+                   oriented: aa,
+                }).then(res=>{
+                    console.log(res)
+                })
+            },
+             getroledd(aa){
+                console.log(aa);
+                this.role=aa;
+                this.geData();
+                this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
+                   location: aa,
+                }).then(res=>{
+                    console.log(res)
+                })
+            },
+             getrolehy(aa){
+                console.log(aa);
+                this.role=aa;
+                this.geData();
+                 this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
+                   profession: aa,
+                }).then(res=>{
+                    console.log(res)
+                })
+            },
+            geData(){
+                // let self = this;
+                this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
+                   location: this.decalist[0].name,
+                   oriented: this.rcaelist[0].name,
+                   profession: this.rolelist[0].name,
+                }).then(res=>{
+                    this.nerocalist=res.data.data.msg;
+                    console.log(this.nerocalist)
+                    console.log(res)
+                })
+            }
+        }
+
+
     }
-    }
+
+    
 </script>
 
 <style>
@@ -498,7 +558,7 @@ a{
     list-style: none;
 }
 .scv-zhj ul li{
-    width: 64px;
+    width: 84px;
     height: 28px;
     font-size: 14px;
     color: #555555;
