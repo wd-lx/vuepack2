@@ -119,7 +119,7 @@
   methods:{
     getData() {
       let self = this;
-      this.$axios.post("wsz/basicinformation/getProjectInformation").then(res=>{
+      this.$axios.post("wsz/pro/basicinformation/getProjectInformation").then(res=>{
        self.datalist=res.data.data.msg;
         console.log(self.datalist);
       

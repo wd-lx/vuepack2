@@ -59,7 +59,11 @@
 
 <script>
     export default {
-        
+        methods:{
+          changetitle(){
+            this.$emit("titlechange","11")
+          }
+        }
     }
 </script>
 

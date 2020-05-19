@@ -3,7 +3,11 @@
     <div class="top-content">
       <div class="content-img">
       <div class="block" v-for="fit in fits" :key="fit">
-    <a href="/shouye"><el-image style="width: 90px; height: 60px; float: left; cursor: pointer; " :src="url" :fit="fit"></el-image></a>
+  <a href="/shouye"><el-image style="width: 60px; height: 60px; float: left; cursor: pointer; " :src="url" :fit="fit"></el-image>
+  <p class='yl'>猿  林</p>
+  <p class='en'>Apes Lin</p>
+  </a>
+
   </div>
       </div>
     <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal"  @select="handleSelect" background-color="white" text-color="black"
@@ -91,7 +95,7 @@
         activeIndex2: '1',
         input2:"",
        fits: ['fill'],
-        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+         url:require("../components/logo.png"),
         denglu:"登录",
         zhuce:"注册",
       };
@@ -109,9 +113,29 @@
     }
   }
 </script>
-
+in
 <style>
-
+.content-img{
+  height: 60px;
+  width: 140px;
+  /* background-color: red; */
+  float: left;
+}
+.yl{
+  font-size:24px;
+  padding-left:7px;
+  display: inline-block;
+  color: #00adef;
+  padding-top: 13px;
+}
+.en{
+  font-size:13px;
+  display: inline-block;
+  color: #00adef;
+  margin-left: -53px;
+  margin-top: 41px;
+  position: absolute;
+}
 #heihei3{
     text-decoration: none;
         color: #303133;
@@ -160,7 +184,7 @@
 }
 .content-img{
   height: 60px;
-  width: 140px;
+  width: 130px;
   /* background-color: red; */
   float: left;
 }

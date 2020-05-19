@@ -122,25 +122,27 @@
         <div class="senqingxuqiu11"><a class="xxq" href="#">免费发布需求</a>
           <a class="jjd" href="#">申请签约接单</a></div>
     </div>
-          
+    <bottom></bottom>
     </div>
 </template>
 
 <script>
+import bottom from '../../components/dibu';
     export default {
+        components:{
+            bottom
+        },
         data() {
       return {
-        
-          dilists:require("../mhy/img/01.jpg"),
+        dilists:require("../mhy/img/01.jpg"),
+    
     }
     }
+
         
     }
 </script>
 
-<<<<<<< HEAD
-<style >
-=======
 <style >
 .ckgduo{
     width: 150px;
@@ -662,4 +664,3 @@
     background-image: url("../mhy/img/11.png")
   }
 </style>
->>>>>>> 807b857ba1f7af442a21012c944c8c08961983f1
