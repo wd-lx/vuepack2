@@ -78,13 +78,24 @@
                 </div>
               </div>
         </div>
+
+       <bottom> </bottom>
+          
+
     </div>
 </template>
 
 <script>
+import  bottom from "../../components/dibu";
+
   export default {
+    
+components:{
+  bottom
+    },
     data() {
-      return {
+
+  return {
         //   复选框
           checkList: [],
           //   税率
@@ -93,7 +104,7 @@
           textarea: '',
         //   上传文件
             fileList: {},      
-        ruleForm: {
+          ruleForm: {
           // name: '',
           //  duoxuan: '',
            shuilv: '',
@@ -129,7 +140,11 @@
         //   ]
         }
       };
-    },
+  },
+    
+      
+
+  
     methods: {
         uploadfile(aa){
             console.log(aa);
@@ -137,7 +152,7 @@
         },
       submitForm(formName) {
       
-              console.log(this.checkList)
+            console.log(this.checkList)
             let fromdata=new FormData();
             fromdata.append('demandFile',this.fileList)
             fromdata.append('demandBudget',this.num)

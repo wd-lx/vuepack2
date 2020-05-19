@@ -411,12 +411,13 @@
     width: 1px;
     height: 14px;
     display: inline-block;
-    float: left;
+    /* float: left; */
     background: #999;
     margin: 13px 20px;
     margin-left: -10px;
     }
   #ui #rr{
+    
     overflow: hidden;
     float: left;
     width: 115px;

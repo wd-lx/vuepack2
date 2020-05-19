@@ -91,7 +91,7 @@
         activeIndex2: '1',
         input2:"",
        fits: ['fill'],
-        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+         url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',       
         denglu:"登录",
         zhuce:"注册",
       };

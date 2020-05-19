@@ -34,7 +34,17 @@ module.exports = {
                 pathRewrite: {
                     '^/wsz': 'http://192.168.1.134:8888/',
                 },
+            },
+
+            '/aa': {
+                target: 'http://192.168.31.236:8001/', //协议域名  ；本地：端口域名
+                // secure:false,   //如果协议是https，需要配置这个参数
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+                    '^/aa': 'http://192.168.31.236:8001/',
+                },
             }
+
         },
 
 

@@ -4,7 +4,7 @@
    
       <div id="app">
         <div id="logo">
-          <a href="" id="logo-link"></a>
+          <a href="" id="logo-link"></a> 
         </div>
        <p id="h3">登录开启云工作</p>
        <div id="work">
@@ -94,16 +94,16 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$axios.post('/mhy/users/userlogin',{
-                 email:this.ruleForm.name,
-                 password:this.ruleForm.passwrd,
+            this.$axios.post('/aa/user/userlogin',{
+                 userEmail:this.ruleForm.name,
+                 userPassword:this.ruleForm.passwrd,
             }).then(res=>{
                 console.log(res);
                 if(res.data.code===400){
                   this.$message.error('用户名不存在！')
           }else if(res.data.code===200) {
                 // sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
-                this.$router.push('/shouye')
+                this.$router.push('/xiangxiliebiao')
           }
             })
              

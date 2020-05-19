@@ -10,7 +10,7 @@
          <div class="scv-lef">
              <ul>
                  <li>角色</li>
-                 <li>地点</li>
+                 <li >地点</li>
                  <li>行业</li>
                  <li>其他</li>
              </ul>
@@ -18,7 +18,7 @@
          <div class="zhongda">
          <div class="scv-zhj">
              <ul>
-                 <a href="#"><li class="beidian">全部</li></a>
+                 <a href="#"><li class="beidian" v-for="(item,index) in decalist" :key="index" @click="getData()">全部</li></a>
                  <a href="#"><li>产品经理</li></a>
                  <a href="#"><li>设计师</li></a>
                  <a href="#"><li>前端</li></a>
@@ -177,7 +177,10 @@
 <script>
     export default {
          data() {
+          
       return {
+            decalist:[],
+            location:'',
           dilist:require("../mhy/img/01.jpg"),
         ruleForm: {
           region: '',
@@ -186,7 +189,23 @@
           
         },
     }
-    }
+    },
+
+mounted(){
+            this.getData();
+        },
+        methods:{
+            getData(){
+                let self = this;
+                this.$axios.post("/aa/pro/basicinformation/selectProgrammers").then(res=>{
+                    console.log(res);
+                })
+            },
+
+            
+
+        },
+
     }
 </script>
 

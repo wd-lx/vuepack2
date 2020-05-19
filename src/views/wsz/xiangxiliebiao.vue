@@ -17,8 +17,8 @@
      <div id="shuju-i">
          <div id="lol">项目名称</div>
          <div id="xing">项目类型</div>
-         <div id="perq">预算
-             <div id="jiedan">接单</div> 
+         <div id="perq"  @click="getData()">预算
+             <div id="jiedan"  >接单</div> 
          </div>
      </div>
   </div>
@@ -53,7 +53,7 @@
 
 </div>
 
-
+ <bottom> </bottom>
 
 
 
@@ -61,28 +61,41 @@
 </template>
 
 <script>
+import  bottom from "../../components/dibu";
+
   export default {
+components:{
+  bottom
+    },
+
+
    data(){
        return{
             datalist:[],
 
+            priject: 0,//项目
+        
        }
    },
+   created(){
+       this.priject=parseInt(this.$route.query.info);
+        console.log(this.priject)
+   },
     mounted () {
-
-      this.Data();
+        this.getData();
     },
-//       methods:{
-//       Data() {
-//       let self = this;
-//       this.$axios.post("wsz/basicinformation/getProjectInformation").then(res=>{
-//        self.datalist=res.data.data.msg;
-//         console.log(self.datalist);
-      
-//       // console.log(res);
-//       })
-//     }
-//   },
+  methods:{
+    getData() {
+      let self = this;
+      self.$axios.post("/aa/pro/basicinformation/getOrder",{
+              priject: this.priject,
+      }).then(res=>{
+        self.datalist=res.data.data.msg;
+        console.log(self.datalist);
+        //   console.log(res);
+      })
+    }
+  },
 
 
   }
@@ -121,7 +134,7 @@
     border-radius: 4px;
     margin-bottom: 1rem;
     width: 900px;
-    height: 440px;
+    /* height: 440px; */
 }
 #power-ft {
     width: 900px;
