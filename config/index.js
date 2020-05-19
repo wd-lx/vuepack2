@@ -12,19 +12,19 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/mhy': {
-                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
+                target: 'http://192.168.1.103:8001/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/mhy': 'http://192.168.1.134:8888/'
+                    '^/mhy': 'http://192.168.1.103:8001/'
                 }
             },
             '/wd': {
-                target: 'http://192.168.1.134:8888/', //协议域名  ；本地：端口域名
+                target: 'http://192.168.1.134:8001/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/wd': 'http://192.168.1.134:8888/'
+                    '^/wd': 'http://192.168.1.103:8001/'
                 }
             },
             '/wsz': {
@@ -32,7 +32,7 @@ module.exports = {
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-                    '^/wsz': 'http://192.168.1.134:8888/',
+                    '^/wsz': 'http://192.168.1.103:8001/',
                 },
             }
         },

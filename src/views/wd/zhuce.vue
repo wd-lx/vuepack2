@@ -60,14 +60,14 @@
     },
     methods: {
       getyzm(){
-        this.axios.post('/wd/users/emailIsExist',{email:this.ruleForm.email}).then(res=>{
+        this.axios.post('/wd/user/addusers',{email:this.ruleForm.email}).then(res=>{
           console.log(res);
         })
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.axios.post('/wd/users/addusers',{
+            this.axios.post('/wd /user/addusers',{
               email:this.ruleForm.email,
               code:this.ruleForm.yzm,
               userName:this.ruleForm.username,

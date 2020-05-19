@@ -94,9 +94,9 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$axios.post('/mhy/users/userlogin',{
-                 email:this.ruleForm.name,
-                 password:this.ruleForm.passwrd,
+            this.$axios.post('/mhy/user/userlogin',{
+                 userEmail:this.ruleForm.name,
+                 userPassword:this.ruleForm.passwrd,
             }).then(res=>{
                 console.log(res);
                 if(res.data.code===400){

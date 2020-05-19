@@ -5,29 +5,29 @@
             <h4>工作信息</h4>
         </header>
         <el-form :model="ruleForm"  ref="ruleForm" label-width="100px" class="demo-ruleForm">
-  <el-form-item label="工作方式" prop="name">
-    <el-checkbox-group v-model="checkList">
-    <el-checkbox label="远程工作"></el-checkbox>
-    <el-checkbox label="驻场工作"></el-checkbox>
+  <el-form-item label="工作方式" prop="name" >
+    <el-checkbox-group v-model="checkList" action :http-request="fileupload">
+    <el-checkbox label="远程工作" action :http-request="fileupload"></el-checkbox>
+    <el-checkbox label="驻场工作" action :http-request="fileupload"></el-checkbox>
     </el-checkbox-group>
   </el-form-item>
   <el-form-item label="工作状态" prop="region">
-    <el-select v-model="ruleForm.region" placeholder="请选择">
+    <el-select v-model="ruleForm.region" placeholder="请选择" action :http-request="fileupload">
       <el-option label="求职" value="shanghai"></el-option>
       <el-option label="自由职业" value="beijing"></el-option>
       <el-option label="正常工作" value="zhengchang"></el-option>
     </el-select>
   </el-form-item>
-  <el-form-item label="职业方向" prop="type">
+  <el-form-item label="职业方向" prop="type" action :http-request="fileupload">
    <el-cascader :options="options" :show-all-levels="false"></el-cascader>
   </el-form-item>
-  <el-form-item label="所在地区" prop="type">
+  <el-form-item label="所在地区" prop="type" action :http-request="fileupload">
    <el-cascader :options="optionss" :show-all-levels="false"></el-cascader>
   </el-form-item>
   <el-form-item label="日薪" prop="desc">
-    <el-input-number v-model="num" @change="handleChange" :min="300" :max="1000" label="描述文字"></el-input-number>
+    <el-input-number v-model="num" @change="handleChange" :min="300" :max="1000" label="描述文字" action :http-request="fileupload"></el-input-number>
   </el-form-item>
-   <el-form-item label="工作时间" prop="timer">
+   <el-form-item label="工作时间" prop="timer" action :http-request="fileupload">
      <el-checkbox-group v-model="checkList">
     <el-checkbox label="工作日">
       工作：
@@ -41,7 +41,7 @@
     </el-checkbox-group>
   </el-form-item>
   <el-form-item label="工作时长" prop="desc">
-    <el-input-number v-model="nums" @change="handleChanges" :min="10" :max="100" label="描述文字"></el-input-number>
+    <el-input-number v-model="nums" @change="handleChanges" :min="10" :max="100" label="描述文字" action :http-request="fileupload"></el-input-number>
   </el-form-item>
 </el-form>
     </div>
@@ -50,8 +50,8 @@
         <h4>个人信息</h4>
       </div>
       <el-form ref="form" :model="sizeForm" label-width="80px" size="mini">
-  <el-form-item label="姓名：">
-    <el-input v-model="sizeForm.name"></el-input>
+  <el-form-item label="姓名：" action :http-request="fileupload">
+    <el-input v-model="sizeForm.name" action :http-request="fileupload"></el-input>
   </el-form-item>
 </el-form>
     </div>
@@ -62,11 +62,11 @@
       <div class="zhengshu">
         <p>技能证书</p>
       </div>
-      <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="textarea2"></el-input>
+      <el-input type="textarea" action :http-request="fileupload" :autosize="{ minRows: 2, maxRows: 4}" placeholder="请输入内容" v-model="textarea2"></el-input>
       <div class="ziping">
         <p>个人自评</p>
         <!-- <span class="demonstration">自评</span> -->
- <el-rate v-model="value" disabled show-score text-color="#ff9900" score-template="{value}">
+ <el-rate v-model="value" disabled show-score text-color="#ff9900" score-template="{value}" action :http-request="fileupload">
 </el-rate>
       </div>   
       <div class="zuopin">
@@ -78,7 +78,7 @@
       </div> 
     </div>
     <div class="jiaoyu">
-        <p>教育经历</p>
+        <p action :http-request="fileupload">教育经历</p>
     </div>
     <div class="btn">
      <el-button type="primary" @click="qianyue">签约接单</el-button>
@@ -298,6 +298,10 @@ import bottom from "../../components/dibu";
       };
       },
        methods: {
+      uploadfile(aa){
+            console.log(aa);
+            this.fileList=aa.file;
+        },
       handleChange(value) {
         console.log(value);
       },
@@ -313,7 +317,10 @@ import bottom from "../../components/dibu";
       fileupload(params){
           this.fileList=params.file;
       },
-      qianyue(){},
+      qianyue(){
+        let fromdata=new FormData();
+        fromdata.append('demandFile',this.fileList)
+      },
     },
     }
 </script>

@@ -91,11 +91,10 @@
       <button class="conta-btn">与我联系</button>
     </div>
 
-    <div class="kffu">优秀程序员推荐</div>
+    <div class="kffu" >优秀程序员推荐</div>
     <div class="langang"></div>
-
-    <div class="huiy">
-      <div class="readuny">
+    <div class="huiy" >
+      <div class="readuny" v-for="(item,index) in readunylist" :key="index">
         <div class="cebil"></div>
         <div class="zuicur">
           <div class="xiaotoup">
@@ -104,13 +103,13 @@
           <div class="neiran">
             <div class="vopljf">
               <a href="#">
-                <p class="nyuv">名字</p>
+                <p class="nyuv">{{item.userName}}</p>
               </a>
               <a href="#">
                 <p class="nyuvop">500元/天</p>
               </a>
             </div>
-            <p class="zuixio">亚讯星科股份UI/UE自由设计师</p>
+            <p class="zuixio">{{item.label}}</p>
           </div>
         </div>
         <a href="#">
@@ -153,15 +152,28 @@
 <script>
 import bottom from "../../components/dibu";
 export default {
-  components: {
-    bottom
-  },
+   components: {
+     bottom
+   },
   data() {
     return {
-      dilists: require("../mhy/img/01.jpg")
-    };
-  }
-};
+      dilists: require("../mhy/img/01.jpg"),       
+      readunylist:[],
+    }
+  },
+  created(){
+       this.getALL();
+     },
+  methods: {
+     getALL(){
+     this.$axios.post("mhy/pro/project/findExcellentProgrammers",).then(res=>{
+      //  console.log(res);
+       this.readunylist=res.data.data.myProjectQueries;
+       console.log(this.readunylist)
+     })
+     }
+  },
+}
 </script>
 
 <style >
