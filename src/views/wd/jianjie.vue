@@ -1,5 +1,6 @@
 <template>
     <div>
+      <top></top>
     <div class="info">
         <header class="info-header">
             <h4>工作信息</h4>
@@ -89,9 +90,11 @@
 
 <script>
 import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
     export default {
         components: {
-                 bottom
+                 bottom,
+                 top
   },
          data() {
             return {

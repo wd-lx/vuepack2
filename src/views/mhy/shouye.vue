@@ -1,5 +1,6 @@
 <template>
   <div>
+    <top></top>
     <div class="tbtu">
       <p class="titley">近43万优秀开发者 , 您的专属云端开发团队</p>
       <p class="titleyl">BAT级别的开发者 , 标准化的服务和交付</p>
@@ -151,9 +152,11 @@
 
 <script>
 import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
 export default {
    components: {
-     bottom
+     bottom,
+     top
    },
   data() {
     return {

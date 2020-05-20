@@ -53,13 +53,12 @@
     </div>
 
       
-  <div id="power" v-for="(item,index) in datalist" :key="index" @click="getData()">
+  <div id="power" >
     <div id="power-ft">
 
 
-<a href="/xiangxiliebiao" >
 <!-- 接口数据 -->
-  <div id="shuju">
+  <div id="shuju" v-for="(item,index) in datalist" :key="index" @click="getData(item.projectId)">
      <div id="shuju-i">
      <img src="./5.jpg" id="img">
       <div id="xiangqing">
@@ -77,8 +76,6 @@
      </div>
   </div>
 
-</a>
-
 
     <!-- 分页组件 -->
     <div id="ye">
@@ -95,11 +92,21 @@
 
   </div>
 </div>
+
+<bottom> </bottom>
+
     </div>
 </template>
 
 <script>
+import  bottom from "../../components/dibu";
+import  top from "../../components/toubu1";
+
   export default {
+    components:{
+     bottom,
+     top
+    },
     data () {
    
        return{
@@ -111,20 +118,20 @@
        }
      
    },
+   
     mounted () {
-
-      this.getData();
+      this.$axios.post("/aa/pro/basicinformation/getProjectInformation").then(res=>{
+        console.log(res);
+        this.datalist=res.data.data.msg;
+        console.log(this.datalist);
+      })
     },
 
   methods:{
-    getData() {
-      let self = this;
-      this.$axios.post("wsz/pro/basicinformation/getProjectInformation").then(res=>{
-       self.datalist=res.data.data.msg;
-        console.log(self.datalist);
+    getData(aa) {
+      console.log(aa);
+     this.$router.push("/xiangxiliebiao?info="+aa);
       
-      // console.log(res);
-      })
     }
   },
 
@@ -139,7 +146,7 @@
 
 #neirong{
     width: 100%;
-    height: 650px;
+    /* height: 650px; */
     background-color: #f0f2f5;
     overflow: hidden;
 }
@@ -278,11 +285,11 @@
     border-radius: 4px;
     margin-bottom: 1rem;
     width: 900px;
-    height: 285px;
+    /* height: 285px; */
 }
 #power-ft {
     width: 804px;
-    height: 285px;
+    /* height: 285px; */
     /* background-color: yellow; */
     margin: auto;
     overflow: hidden;

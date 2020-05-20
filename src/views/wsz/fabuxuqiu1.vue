@@ -1,6 +1,6 @@
 <template>
     <div>  
-       
+       <top></top>
         <div id="section">
               <div id="section-1">
                 <div id="put">
@@ -78,13 +78,26 @@
                 </div>
               </div>
         </div>
+
+       <bottom> </bottom>
+          
+
     </div>
 </template>
 
 <script>
+import  bottom from "../../components/dibu";
+import  top from "../../components/toubu1";
+
   export default {
+    
+components:{
+  bottom,
+  top
+    },
     data() {
-      return {
+
+  return {
         //   复选框
           checkList: [],
           //   税率
@@ -93,7 +106,7 @@
           textarea: '',
         //   上传文件
             fileList: {},      
-        ruleForm: {
+          ruleForm: {
           // name: '',
           //  duoxuan: '',
            shuilv: '',
@@ -129,7 +142,11 @@
         //   ]
         }
       };
-    },
+  },
+    
+      
+
+  
     methods: {
         uploadfile(aa){
             console.log(aa);
@@ -137,7 +154,7 @@
         },
       submitForm(formName) {
       
-              console.log(this.checkList)
+            console.log(this.checkList)
             let fromdata=new FormData();
             fromdata.append('demandFile',this.fileList)
             fromdata.append('demandBudget',this.num)

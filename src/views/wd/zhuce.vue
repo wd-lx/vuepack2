@@ -1,13 +1,6 @@
 <template>
     <div class="zhuce">
-      <!-- <div class="zhuce-top">
-       <div class="zhuce-img"></div>
-       <p>互联网外包平台项目</p>
-       <div class="zhuce-right">
-        <p class="zhuce-right-span">已有帐号?</p>
-        <a href="/denglu"><p class="zhuce-right-denglu">登录</p></a> 
-       </div>
-      </div> -->
+     <top></top>
         <div class="zhuce-box">
             <h3>注册一个新帐户</h3>
          <el-form :model="ruleForm" status-icon  ref="ruleForm" label-width="" class="demo-ruleForm">
@@ -45,7 +38,11 @@
     
     </template>
 <script>
+  import top from "../../components/vtop";
   export default {
+     components: {
+    top
+  },
     data() {
       return {
         ruleForm: {

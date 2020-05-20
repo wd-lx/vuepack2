@@ -3,7 +3,7 @@
     <div class="top-content">
       <div class="content-img">
       <div class="block" v-for="fit in fits" :key="fit">
-   <a href="/shouye1"> <el-image style="width: 60px; height: 60px; float: left; cursor: pointer; " :src="url" :fit="fit"></el-image>
+   <a href="/shouye"> <el-image style="width: 60px; height: 60px; float: left; cursor: pointer; " :src="url" :fit="fit"></el-image>
     <p class='yl'>猿  林</p>
   <p class='en'>Apes Lin</p>
   </a>
@@ -25,7 +25,7 @@
     
 </el-menu>
 
- <el-input placeholder="搜索你感兴趣的程序员" prefix-icon="el-icon-search" v-model="input2" class="el-input"></el-input>
+ <el-input placeholder="搜索你感兴趣的程序员" prefix-icon="el-icon-search" v-model="input2" class="el-input66"></el-input>
 
  <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal"  @select="handleSelect" background-color="white" text-color="black"
  style="width:305px;float:left;">

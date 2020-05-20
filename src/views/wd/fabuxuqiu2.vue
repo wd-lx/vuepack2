@@ -1,5 +1,6 @@
 <template>
     <div class="tem">
+        <top></top>
     <div class="box">
         <div class="box-top">请详细描述您的岗位要求，以便于平台为您推荐合适的开发者</div>
         <div class="box-hd">
@@ -60,9 +61,11 @@
 </template>
 <script>
 import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
     export default {
           components: {
-                 bottom
+                 bottom,
+                 top
   },
          data() {
       return {

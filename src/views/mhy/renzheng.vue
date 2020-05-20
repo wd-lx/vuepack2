@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <top></top>
     <div class="bjil">
 
     <div class="intro">
@@ -69,7 +69,11 @@
 </template>
 
 <script>
+import top from "../../components/toubu1";
     export default {
+          components: {
+    top
+  },
        data() {
       return {
           fileList: {},

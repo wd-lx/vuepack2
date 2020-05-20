@@ -1,11 +1,8 @@
 <template>
     <div>
-
+<top></top>
   <form>
       <div id="app">
-        <div id="logo">
-          <a href="" id="logo-link"></a>
-        </div>
        
        <div id="work">
          <div id="work-div">
@@ -45,7 +42,7 @@
 
                <a id="tvb" href="denglu">已有云沃客帐号，立即登录</a>
 
-               <p class="sign-footer footer-margin92">Copyright© 2020,北京云族佳科技有限公司版权所有</p>
+               <!-- <p class="sign-footer footer-margin92">Copyright© 2020,北京云族佳科技有限公司版权所有</p> -->
           </div>
 
 
@@ -64,7 +61,11 @@
 </template>
  
 <script>
+import top from "../../components/vtop";
   export default {
+     components: {
+    top
+  },
     data() {
       return {
         forRuleForm: {
@@ -151,7 +152,7 @@
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    color: #ff6710;
+    color:#409EFF;
     cursor: pointer;
     font-size: 14px;
     line-height: 19px;

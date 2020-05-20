@@ -1,10 +1,10 @@
 <template>
     <div>
-
+<top></top>
    
       <div id="app">
         <div id="logo">
-          <a href="" id="logo-link"></a>
+          <!-- <a href="" id="logo-link"></a>  -->
         </div>
        <p id="h3">登录开启云工作</p>
        <div id="work">
@@ -39,8 +39,13 @@
 </template>
 
 <script>
+import top from "../../components/vtop";
     export default {
+         components: {
+    top
+  },
        data() {
+         
            var validdataRouter=(rule,value,callback)=>{
           if(value===''){
               callback(new Error("请输入正确的用户名"));
@@ -94,7 +99,7 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$axios.post('/mhy/user/userlogin',{
+            this.$axios.post('/aa/user/userlogin',{
                  userEmail:this.ruleForm.name,
                  userPassword:this.ruleForm.passwrd,
             }).then(res=>{
@@ -103,7 +108,7 @@
                   this.$message.error('用户名不存在！')
           }else if(res.data.code===200) {
                 // sessionStorage.setItem('ss',JSON.stringify(res.data.extend.user))
-                this.$router.push('/yuanlin')
+                this.$router.push('/xiangxiliebiao')
           }
             })
              
@@ -145,19 +150,19 @@
 }
 .lice{
     text-decoration: none;
-    color: #ff6710;
+    color:#409EFF;
     
 }
 .wangji{
     font-size: 12px;
-    color: #ff6710;
+    color: #409EFF;
     float: right;
     margin-top: -5px;
 }
 .zhangdeng{
     margin: 40px auto;
     width: 80px;
-    color: #ff6710;
+    color: #409EFF;
     font-size: 20px;
 }
 .wangmi{

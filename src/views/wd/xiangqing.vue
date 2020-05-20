@@ -1,5 +1,6 @@
 <template>
     <div>
+        <top></top>
     <div class="content">
  <el-aside class="content-left">
      <div class="content-left-img">
@@ -128,9 +129,11 @@
 
 <script>
 import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
     export default {
           components: {
-                 bottom
+                 bottom,
+                 top
   },
         data() {
             return {

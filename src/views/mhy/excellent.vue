@@ -1,10 +1,11 @@
 <template>
     <div>
+        <top></top>
        <div class="dabbn">
         
         <div class="leain"><a href="yuanlin"><div class="liean">返回程序员列表</div></a></div>
        
-        <div class="naeon">
+        <div class="naeon" >
             
              <div class="iimg">
                  <img :src="dilist" alt="">
@@ -44,12 +45,18 @@
 
 <script>
 import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
     export default {
          components: {
-    bottom
+    bottom,
+    top
   },
          data() {
+           
+
       return {
+          
+
           dilist:require("../mhy/img/01.jpg"), 
           dilists:require("../mhy/img/01.jpg"),
     }

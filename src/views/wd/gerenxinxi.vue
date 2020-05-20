@@ -1,5 +1,6 @@
 <template>
     <div>
+        <top></top>
     <div class="intro">
         <h3>完善个人认证后，才能申请签约开发者进行接单</h3>
         <p>
@@ -18,12 +19,18 @@
         <a href=""><span>去认证</span></a>
         </div>
     </div>
-
+<bottom></bottom>
     </div>
 </template>
 
 <script>
+import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
     export default {
+                 components: {
+    top,
+    bottom
+  },
       data() {
         return {
           

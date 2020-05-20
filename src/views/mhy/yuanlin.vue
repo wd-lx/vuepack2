@@ -1,5 +1,6 @@
 <template>
     <div> 
+        <top></top>
     <div class="beijing">
      <div class="titex">
          <p class="titex1">平台程序员兼职</p>
@@ -10,7 +11,7 @@
          <div class="scv-lef">
              <ul>
                  <li>角色</li>
-                 <li>地点</li>
+                 <li >地点</li>
                  <li>行业</li>
                  <li>其他</li>
              </ul>
@@ -18,9 +19,18 @@
          <div class="zhongda">
          <div class="scv-zhj">
              <ul>
-                 <a href="#"><li class="beidian">全部</li></a>
-                 <li v-for="(item,index) in rolelist" :key="index" @click="getrole(item.name)">{{item.name}}</li>
-                 
+                 <a href="#"><li class="beidian" v-for="(item,index) in decalist" :key="index" @click="getData()">全部</li></a>
+                 <a href="#"><li>产品经理</li></a>
+                 <a href="#"><li>设计师</li></a>
+                 <a href="#"><li>前端</li></a>
+                 <a href="#"><li>移动端</li></a>
+                 <a href="#"><li>小程序</li></a>
+                 <a href="#"><li>游戏</li></a>
+                 <a href="#"><li>后端</li></a>
+                 <a href="#"><li>测试</li></a>
+                 <a href="#"><li>DBA</li></a>
+                 <a href="#"><li>运维</li></a>
+                 <a href="#"><li>其他</li></a>
                  
              </ul>
          </div>
@@ -148,15 +158,17 @@
 
 <script>
 import bottom from "../../components/dibu";
+import top from "../../components/toubu1";
     export default {
         components: {
-    bottom
+    bottom,
+    top
   },
          data() {
+          
       return {
-          nerocalist:[],
-          decalist:[],
-          location:'',
+            decalist:[],
+            location:'',
           dilist:require("../mhy/img/01.jpg"),
         ruleForm: {
           region: '',
@@ -201,58 +213,23 @@ import bottom from "../../components/dibu";
         role:''
     }
     },
-        mounted(){
-            this.geData();
+
+mounted(){
+            this.getData();
         },
         methods:{
-            getrole(aa){
-                console.log(aa);
-                this.role=aa;
-                this.geData();
-                this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
-                   oriented: aa,
-                }).then(res=>{
-                    console.log(res)
+            getData(){
+                let self = this;
+                this.$axios.post("/aa/pro/basicinformation/selectProgrammers").then(res=>{
+                    console.log(res);
                 })
             },
-             getroledd(aa){
-                console.log(aa);
-                this.role=aa;
-                this.geData();
-                this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
-                   location: aa,
-                }).then(res=>{
-                    console.log(res)
-                })
-            },
-             getrolehy(aa){
-                console.log(aa);
-                this.role=aa;
-                this.geData();
-                 this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
-                   profession: aa,
-                }).then(res=>{
-                    console.log(res)
-                })
-            },
-            geData(){
-                // let self = this;
-                this.$axios.post("mhy/pro/basicinformation/selectProgrammers",{
-                   location: this.decalist[0].name,
-                   oriented: this.rcaelist[0].name,
-                   profession: this.rolelist[0].name,
-                }).then(res=>{
-                    this.nerocalist=res.data.data.msg;
-                    console.log(this.nerocalist)
-                    console.log(res)
-                })
-            }
-        }
 
+            
+
+        },
 
     }
-
-    
 </script>
 
 <style>

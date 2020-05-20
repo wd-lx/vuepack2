@@ -12,21 +12,6 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/mhy': {
-<<<<<<< HEAD
-                target: 'http://192.168.1.103:8001/', //协议域名  ；本地：端口域名
-                // secure:false,   //如果协议是https，需要配置这个参数
-                changeOrigin: true, //是否跨域
-                pathRewrite: {
-                    '^/mhy': 'http://192.168.1.103:8001/'
-                }
-            },
-            '/wd': {
-                target: 'http://192.168.1.134:8001/', //协议域名  ；本地：端口域名
-                // secure:false,   //如果协议是https，需要配置这个参数
-                changeOrigin: true, //是否跨域
-                pathRewrite: {
-                    '^/wd': 'http://192.168.1.103:8001/'
-=======
                 target: 'http://192.168.31.236:8001/', //协议域名  ；本地：端口域名
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
@@ -40,7 +25,6 @@ module.exports = {
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
                     '^/wd': 'http://192.168.31.236:8001/'
->>>>>>> 4d1502c208ffbf594f6ccfce33732e48eea21261
                 }
             },
             '/wsz': {
@@ -48,13 +32,19 @@ module.exports = {
                 // secure:false,   //如果协议是https，需要配置这个参数
                 changeOrigin: true, //是否跨域
                 pathRewrite: {
-<<<<<<< HEAD
-                    '^/wsz': 'http://192.168.1.103:8001/',
-=======
                     '^/wsz': 'http://192.168.31.236:8001/',
->>>>>>> 4d1502c208ffbf594f6ccfce33732e48eea21261
+                },
+            },
+
+            '/aa': {
+                target: 'http://192.168.31.236:8001/', //协议域名  ；本地：端口域名
+                // secure:false,   //如果协议是https，需要配置这个参数
+                changeOrigin: true, //是否跨域
+                pathRewrite: {
+                    '^/aa': 'http://192.168.31.236:8001/',
                 },
             }
+
         },
 
 
